@@ -23,5 +23,6 @@ module.exports = async (req, res, next) => {
   res.render("displayEmployeesView", {
     title: "List of Employees",
     data: results,
+    user: res.locals.user
   });
 };

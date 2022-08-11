@@ -32,6 +32,7 @@ function something(req, res, next) {
   const data = jwt.verify(token, process.env.CS602_TERM_PROJ_JWT_SECRET);
   console.log("email is: " + data.username);
   console.log("isAdmin is: " + data.isAdmin);
+  res.locals.user = data.username;
 
   next();
 };
