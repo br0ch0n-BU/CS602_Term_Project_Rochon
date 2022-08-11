@@ -1,0 +1,29 @@
+ <div class="table-responsive">
+  <form method="post" action="/login">
+    <table class="table table-condensed">
+      <tbody>
+       <tr>
+         <th>E-mail: </th>
+         <td><input type="email" name="email" required 
+              placeholder="Enter e-mail address"></td>
+       </tr>
+       <tr>
+         <th>Password: </th>
+         <td><input type="password" name="password" required 
+              placeholder="Enter password"></td>
+       </tr>
+       </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+           <input type="submit" value="Login" 
+              class="btn btn-success">
+           <input type="button" value="Cancel" 
+              class="btn btn-danger" onclick="cancelAdd()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

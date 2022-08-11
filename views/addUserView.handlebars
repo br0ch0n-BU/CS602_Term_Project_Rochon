@@ -1,0 +1,41 @@
+ <div class="table-responsive">
+  <form method="post" action="/register">
+    <table class="table table-condensed">
+      <tbody>
+       
+       <tr>
+         <th>First Name: </th>
+         <td><input type="text" name="fname" required 
+              placeholder="Enter first name"></td>
+       </tr>
+       <tr>
+         <th>Last Name: </th>
+         <td><input type="text" name="lname" required 
+              placeholder="Enter last name"></td>
+       </tr>
+       <tr>
+         <th>E-mail: </th>
+         <td><input type="email" name="email" required 
+              placeholder="Enter e-mail address"></td>
+       </tr>
+       <tr>
+         <th>Password: </th>
+         <td><input type="password" name="password" required 
+              placeholder="Enter new password"></td>
+       </tr>
+       
+       </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+           <input type="submit" value="Save" 
+              class="btn btn-success">
+           <input type="button" value="Cancel" 
+              class="btn btn-danger" onclick="cancelAdd()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

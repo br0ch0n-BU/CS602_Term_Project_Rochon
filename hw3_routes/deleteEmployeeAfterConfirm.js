@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
       return res.render("404");
     }
 
-    employee.remove((err) => {
+    employee.deleteOne((err) => {
       if (err) {
         console.error("Could not delete employee: " + err);
       }
