@@ -1,7 +1,7 @@
 /***************************
  *  Brandon Rochon         *
  *  brochon@bu.edu         *
- *  CS 602 HW3, Sum2 2022  *
+ *  CS 602 TermProject, Sum2 2022  *
  **************************/
 
 const User = require("../models/user.js");

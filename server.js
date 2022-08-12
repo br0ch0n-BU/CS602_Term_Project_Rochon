@@ -1,7 +1,7 @@
 /***************************
  *  Brandon Rochon         *
  *  brochon@bu.edu         *
- *  CS 602 HW3, Sum2 2022  *
+ *  CS 602 TermProject, Sum2 2022  *
  **************************/
 
 const express = require("express");
@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('cookiesecret'));
 
 // Routing
-var routes = require("./hw3_routes/index");
+var routes = require("./routes/index");
 app.use("/", routes);
 
 app.use(function (req, res) {

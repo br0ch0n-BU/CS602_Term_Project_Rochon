@@ -1,0 +1,46 @@
+ <div class="table-responsive">
+  <form method="post" action="/products/add">
+    <table class="table table-condensed">
+      <tbody>
+       
+       <tr>
+         <th>SKU: </th>
+         <td><input type="text" name="sku" required 
+              placeholder="Enter SKU"></td>
+       </tr>
+       <tr>
+         <th>Description: </th>
+         <td><input type="text" name="description" required 
+              placeholder="Enter description"></td>
+       </tr>
+       <tr>
+         <th>Price: </th>
+         <td><input type="number" name="price" required 
+              placeholder="Enter price"></td>
+       </tr>
+       <tr>
+         <th>Quantity: </th>
+         <td><input type="number" name="quantity" required 
+              placeholder="Enter current quantity in stock"></td>
+       </tr>
+       <tr>
+         <th>Image path (optional): </th>
+         <td><input type="text" name="imagePath" 
+              placeholder="Enter URL to image of product"></td>
+       </tr>
+       
+       </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+           <input type="submit" value="Save" 
+              class="btn btn-success">
+           <input type="button" value="Cancel" 
+              class="btn btn-danger" onclick="cancelAdd()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>
