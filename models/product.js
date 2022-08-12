@@ -14,7 +14,7 @@ const productSchema = mongoose.Schema(
     imagePath: {
       type: String,
       required: false,
-      default: "/images/bu-logo.gif"
+      default: "/images/placeholder.png"
     },
     price: {
       type: Number,

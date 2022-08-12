@@ -14,7 +14,7 @@ const orderSchema = mongoose.Schema(
       type: Date,
       required: true,
     },
-    quantity: {
+    quantityOrdered: {
       type: Number,
       required: true,
     },

@@ -11,17 +11,18 @@ const jwt = require('jsonwebtoken');
 
 
 // other modules
-const displayEmployees = require("./displayEmployees");
-const addEmployee = require("./addEmployee");
-const saveEmployee = require("./saveEmployee");
+const displayProducts = require("./displayProducts");
+
+const addProduct = require("./addProduct");
+const saveProduct = require("./saveProduct");
 const addUser = require("./addUser");
 const saveUser = require("./saveUser");
 const login = require("./login");
 const loginAction = require("./loginAction");
-const editEmployee = require("./editEmployee");
-const saveAfterEdit = require("./saveAfterEdit");
-const deleteEmployee = require("./deleteEmployee");
-const deleteEmployeeAfterConfirm = require("./deleteEmployeeAfterConfirm");
+const editProduct = require("./editProduct");
+const saveAfterProductEdit = require("./saveAfterProductEdit");
+const deleteProduct = require("./deleteProduct");
+const deleteProductAfterConfirm = require("./deleteProductAfterConfirm");
 
 //const fakeMiddle = () => {console.log("foo");}; 
 // router specs
@@ -38,13 +39,14 @@ function something(req, res, next) {
 };
 
 router.get("/", function (req, res, next) {
-  res.redirect("/employees");
+  res.redirect("/products");
 });
 
-router.get("/employees", something, displayEmployees);
+router.get("/products", something, displayProducts);
 
-router.get("/employees/add", addEmployee);
-router.post("/employees/add", saveEmployee);
+
+router.get("/products/add", addProduct);
+router.post("/products/add", saveProduct);
 
 router.get("/register", addUser);
 router.post("/register", saveUser);
@@ -52,10 +54,10 @@ router.post("/register", saveUser);
 router.get("/login", login);
 router.post("/login", loginAction);
 
-router.get("/employees/edit/:id", editEmployee);
-router.post("/employees/edit/", saveAfterEdit);
+router.get("/products/edit/:id", editProduct);
+router.post("/products/edit/", saveAfterProductEdit);
 
-router.get("/employees/delete/:id", deleteEmployee);
-router.post("/employees/delete", deleteEmployeeAfterConfirm);
+router.get("/products/delete/:id", deleteProduct);
+router.post("/products/delete", deleteProductAfterConfirm);
 
 module.exports = router;

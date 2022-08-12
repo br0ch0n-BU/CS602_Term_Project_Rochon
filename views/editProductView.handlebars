@@ -1,0 +1,69 @@
+<div class="table-responsive">
+  <form method="post" action="/products/edit">
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th>SKU: </th>
+          <td><input
+              type="text"
+              name="sku"
+              required
+              value="{{data.sku}}"
+            /></td>
+        </tr>
+        <tr>
+          <th>Description: </th>
+          <td><input
+              type="text"
+              name="description"
+              required
+              value="{{data.description}}"
+            /></td>
+        </tr>
+        <tr>
+          <th>Price: </th>
+          <td><input
+              type="number"
+              step="0.01"
+              name="price"
+              required
+              value="{{data.price}}"
+            /></td>
+        </tr>
+        <tr>
+          <th>Quantity: </th>
+          <td><input
+              type="number"
+              name="quantity"
+              required
+              value="{{data.quantity}}"
+            /></td>
+        </tr>
+        <tr>
+          <th>Image path (optional): </th>
+          <td><input
+              type="text"
+              name="imagePath"
+              value="{{data.image}}"
+            /></td>
+        </tr>
+        <input type="hidden" name="id" value="{{data.id}}" />
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Save" class="btn btn-success" />
+            <input
+              type="button"
+              value="Cancel"
+              class="btn btn-danger"
+              class="cancel"
+              onclick="cancelAdd()"
+            />
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

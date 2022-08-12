@@ -8,10 +8,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const handlebars = require("express-handlebars");
 const jwt = require("jsonwebtoken");
-const accesstokensecret = process.env.CS602_TERM_PROJ_JWT_SECRET || "secret"
+const accesstokensecret = process.env.CS602_TERM_PROJ_JWT_SECRET || "secret";
 const app = express();
 const mongoose = require("mongoose");
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 
 const credentials = require("./credentials.js");
 
@@ -40,7 +40,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(cookieParser('cookiesecret'));
+app.use(cookieParser("cookiesecret"));
 
 // Routing
 var routes = require("./routes/index");
@@ -49,6 +49,15 @@ app.use("/", routes);
 app.use(function (req, res) {
   res.status(404);
   res.render("404");
+});
+
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err)
+  }
+  console.error(err.message);
+  res.status(500);
+  res.render("500");
 });
 
 app.listen(3000, function () {

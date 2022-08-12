@@ -1,14 +1,14 @@
 <div class="table-responsive">
-  <form method="post" action='/employees/delete'>
+  <form method="post" action='/products/delete'>
     <table class="table table-condensed">
       <tbody>
         <tr>
-          <th>First Name: </td>
-          <td>{{data.firstName}}</td>
+          <th>SKU:</th>
+          <td>{{data.sku}}</td>
         </tr>
         <tr>
-          <th>Last Name: </td>
-          <td>{{data.lastName}}</td>
+          <th>Description: </th>
+          <td>{{data.description}}</td>
         </tr>
         <input type="hidden" name="id" value="{{data.id}}">
        

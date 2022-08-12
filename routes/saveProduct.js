@@ -26,6 +26,7 @@ module.exports = async (req, res, next) => {
     product.save((error) => {
       if (error) {
         console.error("Could not add product: " + error);
+        //TODO: render error page for user
       }
       res.redirect("/products");
     });
