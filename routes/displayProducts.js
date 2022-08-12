@@ -21,8 +21,9 @@ module.exports = async (req, res, next) => {
   });
 
   res.render("displayProductsView", {
-    title: "List of Products",
+    title: "Admin Management of Products",
     data: results,
-    user: res.locals.user
+    user: res.locals.user,
+    isAdmin: res.locals.isAdmin
   });
 };

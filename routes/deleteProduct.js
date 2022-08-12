@@ -17,11 +17,13 @@ module.exports = async (req, res, next) => {
     }
 
     res.render("deleteProductView", {
-      title: "Delete this product?",
+      title: "Admin Delete this product?",
       data: {
         id: product._id,
         sku: product.sku,
         description: product.description,
+        user: res.locals.user,
+        isAdmin: res.locals.isAdmin
       },
     });
   });

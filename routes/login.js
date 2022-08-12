@@ -5,5 +5,11 @@
  **************************/
 
 module.exports = (req, res, next) => {
-  res.render("loginView", { title: "Login" });
+  res.render("loginView", {
+    title: "Login",
+    data: {
+      user: res.locals.user,
+      isAdmin: res.locals.isAdmin,
+    },
+  });
 };

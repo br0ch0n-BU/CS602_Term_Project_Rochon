@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
         console.error("Could not register user: " + error);
       }
       // Success
-      res.redirect("/employees");
+      res.redirect("/login");
     });
   } else res.redirect("/register");
 };

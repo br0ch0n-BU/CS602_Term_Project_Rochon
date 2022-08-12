@@ -5,5 +5,11 @@
  **************************/
 
 module.exports = (req, res, next) => {
-  res.render("addUserView", { title: "Register New User" });
+  res.render("addUserView", {
+    title: "Register New User",
+    data: {
+      user: res.locals.user,
+      isAdmin: res.locals.isAdmin,
+    },
+  });
 };

@@ -8,12 +8,23 @@
 <body>
 
 	<header>
-		<a href="/"><img src="/images/bu-logo.gif" alt="logo"></a>
+		<a href="/"><img src="/images/ballmart.png" alt="logo" height="50"></a>
 		<p>
 		<center>
 			<h3>CS602 TermProject - Brandon Rochon</h3>
 			<h4>View: {{title}}</h4>
+			{{#if user}}
 			<h5>Hi {{user}}!</h5>
+			<a href="/logout">logout</a> <br />
+			<a href="/orders">See order history</a>
+			{{else}}
+			<h5>You should <a href="/login">login</a> or <a href="/register">register</a> so you can buy stuff!</h5>
+			{{/if}}
+
+			{{#if isAdmin}}
+			<h5>You're an admin, so you can also <a href="/products">Manage the catalog</a>, and other stuff</h5>
+			{{/if}}
+
 
 		</center>
 	</header>
