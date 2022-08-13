@@ -1,17 +1,20 @@
-/***************************
- *  Brandon Rochon         *
- *  brochon@bu.edu         *
+/***********************************
+ *  Brandon Rochon                 *
+ *  brochon@bu.edu                 *
  *  CS 602 TermProject, Sum2 2022  *
- **************************/
+ **********************************/
 
 const express = require("express");
 const router = express.Router();
 
 const jwt = require("jsonwebtoken");
 
-// other modules
 const displayProducts = require("./displayProducts");
 const displayStore = require("./displayStore");
+const displayOrders = require("./displayOrders");
+const confirmPurchase = require("./confirmPurchase");
+const completePurchase = require("./completePurchase");
+
 
 const addProduct = require("./addProduct");
 const saveProduct = require("./saveProduct");
@@ -55,6 +58,11 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/store", checkToken, displayStore);
+router.get("/orders", checkToken, displayOrders);
+router.post("/buy", checkToken, confirmPurchase);
+router.post("/reallybuy", checkToken, completePurchase);
+
+
 
 router.get("/products", checkToken, employeeOnly, displayProducts);
 
@@ -64,7 +72,7 @@ router.post("/products/add", checkToken, employeeOnly, saveProduct);
 router.get("/register", addUser);
 router.post("/register", saveUser);
 
-router.get("/login", login);
+router.get("/login", checkToken, login);
 router.post("/login", loginAction);
 
 router.get("/logout", logout);

@@ -1,0 +1,28 @@
+<div>
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			{{#if data}}
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>SKU</th>
+					<th>Quantity</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			{{else}}
+			<tr><td colspan="3">No Orders found ... Go buy stuff!</td></tr>
+			{{/if}}
+			<tbody>
+				{{#each data}}
+					<tr>
+						<td>{{this.date}}</td>
+						<td>{{this.sku}}</td>
+						<td>{{this.quantity}}</td>
+						<td>{{this.total}}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</div>

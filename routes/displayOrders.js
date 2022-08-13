@@ -1,0 +1,31 @@
+/***********************************
+ *  Brandon Rochon                 *
+ *  brochon@bu.edu                 *
+ *  CS 602 TermProject, Sum2 2022  *
+ **********************************/
+
+const Order = require("../models/order.js");
+
+module.exports = async (req, res, next) => {
+  if (res.locals.user) {
+    let orders = await Order.find({username: res.locals.user}).sort("purchaseDate");
+
+    let results = orders.map((order) => {
+      return {
+        id: order._id,
+        sku: order.sku,
+        username: order.username,
+        date: order.purchaseDate,
+        quantity: order.quantityOrdered,
+        total: order.invoiceTotal,
+      };
+    });
+
+    res.render("displayOrdersView", {
+      title: "Order History",
+      data: results,
+      user: res.locals.user,
+      isAdmin: res.locals.isAdmin,
+    });
+  } else res.redirect("/");
+};

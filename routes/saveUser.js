@@ -1,8 +1,8 @@
-/***************************
- *  Brandon Rochon         *
- *  brochon@bu.edu         *
+/***********************************
+ *  Brandon Rochon                 *
+ *  brochon@bu.edu                 *
  *  CS 602 TermProject, Sum2 2022  *
- **************************/
+ **********************************/
 
 const User = require("../models/user.js");
 const bcrypt = require("bcrypt");

@@ -1,0 +1,40 @@
+<div class="table-responsive">
+  <form method="post" action="/reallybuy">
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th>SKU:</th>
+          <td>{{data.sku}}</td>
+        </tr>
+        <tr>
+          <th>Desired quantity: </th>
+          <td>{{data.desired}}</td>
+        </tr>
+        <tr>
+          <th>Order total: </th>
+          <td>${{data.total}}</td>
+        </tr>
+        <input type="hidden" name="id" value="{{data.id}}" />
+        <input type="hidden" name="sku" value="{{data.sku}}" />
+        <input type="hidden" name="desired" value="{{data.desired}}" />
+        <input type="hidden" name="total" value="{{data.total}}" />
+
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="OK" class="btn btn-success" />
+            <input
+              type="button"
+              value="Cancel"
+              class="btn btn-danger"
+              class="cancel"
+              onclick="cancelSearch()"
+            />
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

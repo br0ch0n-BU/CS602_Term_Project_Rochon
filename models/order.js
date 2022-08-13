@@ -18,6 +18,10 @@ const orderSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    invoiceTotal: {
+      type: Number,
+      required: true,
+    },
   },
   {
     collection: "orders_rochon",
