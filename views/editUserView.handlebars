@@ -2,7 +2,7 @@
   <h2>There was a problem editing the user. Please try again.</h2>
 {{/if}}
 <div class="table-responsive">
-  <form method="post" action="/register">
+  <form method="post" action="/users/edit">
     <table class="table table-condensed">
       <tbody>
 
@@ -38,7 +38,6 @@
           <td><input
               type="checkbox"
               name="isAdmin"
-              required
               value="true"
               {{#if data.isAdmin}}
               checked
@@ -60,7 +59,7 @@
               type="button"
               value="Cancel"
               class="btn btn-danger"
-              onclick="location.href='/manageusers'"
+              onclick="location.href='/users'"
             />
           </td>
         </tr>

@@ -30,6 +30,8 @@ const logout = require("./logout");
 const loginAction = require("./loginAction");
 const editProduct = require("./editProduct");
 const editUser = require("./editUser");
+const saveAfterUserEdit = require("./saveAfterUserEdit");
+
 
 const saveAfterProductEdit = require("./saveAfterProductEdit");
 const deleteProduct = require("./deleteProduct");
@@ -65,7 +67,7 @@ router.get("/", function (req, res, next) {
 
 router.get("/store", checkToken, displayStore);
 router.get("/manageorders", checkToken, employeeOnly, adminManageOrders);
-router.get("/manageusers", checkToken, employeeOnly, adminManageUsers);
+router.get("/users", checkToken, employeeOnly, adminManageUsers);
 
 router.get("/orders", checkToken, displayOrders);
 router.post("/buy", checkToken, confirmPurchase);
@@ -97,6 +99,7 @@ router.post(
   deleteProductAfterConfirm
 );
 router.get("/users/edit/:id", checkToken, employeeOnly, editUser);
+router.post("/users/edit", checkToken, employeeOnly, saveAfterUserEdit);
 
 
 module.exports = router;

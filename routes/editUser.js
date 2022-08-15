@@ -24,6 +24,7 @@ module.exports = async (req, res, next) => {
         email: user.email,
         isAdmin: user.isAdmin,
       },
+      problem: req.query.problem
     });
   });
 };

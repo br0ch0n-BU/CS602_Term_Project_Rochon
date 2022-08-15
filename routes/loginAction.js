@@ -12,7 +12,6 @@ const accessTokenSecret = process.env.CS602_TERM_PROJ_JWT_SECRET || "secret"
 
 
 module.exports = async (req, res, next) => {
-  const salt = await bcrypt.genSalt(10);
   if (req.body.email && req.body.password) {
      const user = await User.findOne({ email: req.body.email.toLowerCase() });
     if (user) {
