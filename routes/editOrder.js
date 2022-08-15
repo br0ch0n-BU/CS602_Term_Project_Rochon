@@ -20,10 +20,10 @@ module.exports = async (req, res, next) => {
       data: {
         id: order._id,
         sku: order.sku,
-        description: order.description,
-        image: order.imagePath,
-        price: order.price,
-        quantity: order.quantityInStock,
+        username: order.username,
+        date: order.purchaseDate,
+        total: order.invoiceTotal.toFixed(2),
+        quantity: order.quantityOrdered,
       },
     });
   });

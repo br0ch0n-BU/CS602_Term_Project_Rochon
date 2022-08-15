@@ -1,53 +1,49 @@
 {{#if problem}}
-  <h2>There was a problem editing the user. Please try again.</h2>
+  <h2>There was a problem editing the order. Please try again.</h2>
 {{/if}}
 <div class="table-responsive">
-  <form method="post" action="/register">
+  <form method="post" action="/manageorders/edit">
     <table class="table table-condensed">
       <tbody>
-
         <tr>
-          <th>First Name: </th>
+          <th>Order ID:</th>
+          <td>{{data.id}}</td>
+        </tr>
+        <tr>
+          <th>Date:</th>
+          <td>{{data.date}}</td>
+        </tr>
+        <tr>
+          <th>User:</th>
+          <td>{{data.username}}</td>
+        </tr>
+        <tr>
+          <th>SKU:</th>
           <td><input
               type="text"
-              name="fname"
+              name="sku"
               required
-              value="{{data.firstName}}"
+              value="{{data.sku}}"
             /></td>
         </tr>
         <tr>
-          <th>Last Name: </th>
+          <th>Quantity:</th>
           <td><input
-              type="text"
-              name="lname"
+              type="number"
+              name="quantity"
               required
-              value="{{data.lastName}}"
+              value="{{data.quantity}}"
             /></td>
         </tr>
         <tr>
-          <th>E-mail: </th>
+          <th>Total:</th>
           <td><input
-              type="email"
-              name="email"
+              type="number"
+              name="total"
+              step="0.01"
               required
-              value="{{data.email}}"
+              value="{{data.total}}"
             /></td>
-        </tr>
-        <tr>
-          <th>Admin?: </th>
-          <td><input
-              type="checkbox"
-              name="isAdmin"
-              required
-              value="true"
-              {{#if data.isAdmin}}
-              checked
-              {{/if}}
-            /></td>
-        </tr>
-        <tr>
-          <th>Password: </th>
-          <td><input type="password" name="password" placeholder="Enter new password if needed"/></td>
         </tr>
         <input type="hidden" name="id" value="{{data.id}}" />
       </tbody>
@@ -60,7 +56,7 @@
               type="button"
               value="Cancel"
               class="btn btn-danger"
-              onclick="location.href='/manageusers'"
+              onclick="history.back()"
             />
           </td>
         </tr>

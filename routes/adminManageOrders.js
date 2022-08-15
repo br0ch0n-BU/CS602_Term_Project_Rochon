@@ -26,5 +26,7 @@ module.exports = async (req, res, next) => {
     title: "Admin Manage Order History",
     data: results,
     manageView: true,
+    problem: req.query.problem,
+    success: req.query.success
   });
 };

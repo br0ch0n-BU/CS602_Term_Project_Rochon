@@ -12,6 +12,12 @@ const jwt = require("jsonwebtoken");
 const displayProducts = require("./displayProducts");
 const displayStore = require("./displayStore");
 const displayOrders = require("./displayOrders");
+
+const editOrder = require("./editOrder");
+const deleteOrder = require("./deleteOrder");
+const deleteOrderAfterConfirm = require("./deleteOrderAfterConfirm");
+const saveAfterOrderEdit = require("./saveAfterOrderEdit");
+
 const adminManageOrders = require("./adminManageOrders");
 const adminManageUsers = require("./adminManageUsers");
 
@@ -29,6 +35,7 @@ const logout = require("./logout");
 
 const loginAction = require("./loginAction");
 const editProduct = require("./editProduct");
+
 const editUser = require("./editUser");
 const deleteUser = require("./deleteUser");
 const deleteUserAfterConfirm = require("./deleteUserAfterConfirm");
@@ -69,12 +76,22 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/store", checkToken, displayStore);
-router.get("/manageorders", checkToken, employeeOnly, adminManageOrders);
-router.get("/users", checkToken, employeeOnly, adminManageUsers);
 
-router.get("/orders", checkToken, displayOrders);
-router.post("/buy", checkToken, confirmPurchase);
-router.post("/reallybuy", checkToken, completePurchase);
+router.get("/manageorders", checkToken, employeeOnly, adminManageOrders);
+router.get("/manageorders/edit/:id", checkToken, employeeOnly, editOrder);
+router.post("/manageorders/edit", checkToken, employeeOnly, saveAfterOrderEdit);
+router.get("/manageorders/delete/:id", checkToken, employeeOnly, deleteOrder);
+router.post(
+  "/manageorders/delete",
+  checkToken,
+  employeeOnly,
+  deleteOrderAfterConfirm
+);
+
+
+router.get("/orders", checkToken, customerOnly, displayOrders);
+router.post("/buy", checkToken, customerOnly, confirmPurchase);
+router.post("/reallybuy", checkToken, customerOnly, completePurchase);
 
 
 
@@ -101,6 +118,8 @@ router.post(
   employeeOnly,
   deleteProductAfterConfirm
 );
+
+router.get("/users", checkToken, employeeOnly, adminManageUsers);
 router.get("/users/edit/:id", checkToken, employeeOnly, editUser);
 router.post("/users/edit", checkToken, employeeOnly, saveAfterUserEdit);
 router.get("/users/delete/:id", checkToken, employeeOnly, deleteUser);

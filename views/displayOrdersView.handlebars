@@ -1,5 +1,11 @@
 {{#if thanks}}
-Thanks for your purchase! See your orders below.
+<h3>Thanks for your purchase! See your orders below.</h3>
+{{/if}}
+{{#if problem}}
+  <h2>There was a problem adding/editing the product. Please try again.</h2>
+{{/if}}
+{{#if success}}
+  <h2>Updated order!</h2>
 {{/if}}
 <div>
   <div class="table-responsive">
@@ -36,9 +42,9 @@ Thanks for your purchase! See your orders below.
             <td>${{this.total}}</td>
             {{#if ../manageView}}
               <td>
-                <a href="/orders/edit/{{this.id}}">Edit</a>
+                <a href="/manageorders/edit/{{this.id}}">Edit</a>
                 |
-                <a href="/orders/delete/{{this.id}}">Delete</a>
+                <a href="/manageorders/delete/{{this.id}}">Delete</a>
               </td>
             {{/if}}
           </tr>
