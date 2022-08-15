@@ -18,9 +18,9 @@ module.exports = async (req, res, next) => {
     order.deleteOne((err) => {
       if (err) {
         console.error("Could not delete order: " + err);
-        return res.redirect("/orders?problem=true");
+        return res.redirect("/manageorders?problem=true");
       }
-      res.redirect("/orders");
+      res.redirect("/manageorders?success=true");
     });
   });
 };

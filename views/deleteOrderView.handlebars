@@ -1,14 +1,30 @@
 <div class="table-responsive">
-  <form method="post" action='/orders/delete'>
+  <form method="post" action='/manageorders/delete'>
     <table class="table table-condensed">
       <tbody>
+        <tr>
+          <th>Order ID:</th>
+          <td>{{data.id}}</td>
+        </tr>
+        <tr>
+          <th>Date: </th>
+          <td>{{data.date}}</td>
+        </tr>
         <tr>
           <th>SKU:</th>
           <td>{{data.sku}}</td>
         </tr>
         <tr>
-          <th>Description: </th>
-          <td>{{data.description}}</td>
+          <th>User:</th>
+          <td>{{data.username}}</td>
+        </tr>
+        <tr>
+          <th>Quantity:</th>
+          <td>{{data.quantity}}</td>
+        </tr>
+        <tr>
+          <th>Total:</th>
+          <td>{{data.total}}</td>
         </tr>
         <input type="hidden" name="id" value="{{data.id}}">
        
@@ -19,7 +35,7 @@
           <td>
               <input type="submit" value="OK" class="btn btn-success">
               <input type="button" value="Cancel" class="btn btn-danger"
-                  class="cancel" onclick="cancelDelete()">
+                  class="cancel" onclick="location.href='/manageorders'">
           </td>
         </tr>
       </tfooter>
