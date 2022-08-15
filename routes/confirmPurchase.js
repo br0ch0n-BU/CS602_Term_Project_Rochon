@@ -24,7 +24,7 @@ module.exports = async (req, res, next) => {
         id: product._id,
         sku: product.sku,
         desired: req.body.desired,
-        total: totalPrice,
+        total: totalPrice.toFixed(2),
         user: res.locals.user,
         isAdmin: res.locals.isAdmin
       },

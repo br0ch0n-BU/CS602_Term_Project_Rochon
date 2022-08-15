@@ -24,8 +24,6 @@ module.exports = async (req, res, next) => {
         image: product.imagePath,
         price: product.price,
         quantity: product.quantityInStock,
-        user: res.locals.user,
-        isAdmin: res.locals.isAdmin,
       },
     });
   });

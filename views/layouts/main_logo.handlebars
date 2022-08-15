@@ -18,13 +18,13 @@
 			{{#if user}}
 			<h5>Hi {{user}}!</h5>
 			<a href="/logout">logout</a> <br />
-			<a href="/orders">See order history</a>
+			<a href="/orders">See your order history</a>
 			{{else}}
 			<h5>You should <a href="/login">login</a> or <a href="/register">register</a> so you can buy stuff!</h5>
 			{{/if}}
 
 			{{#if isAdmin}}
-			<h5>You're an admin, so you can also <a href="/products">Manage the catalog</a>, and other stuff</h5>
+			<h5>You're an admin, so you can also <a href="/products">Manage the catalog</a>, <a href="/manageorders">Manage orders</a>, <a href="/manageusers">Manage users</a>, and other stuff</h5>
 			{{/if}}
 
 

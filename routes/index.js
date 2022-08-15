@@ -12,6 +12,10 @@ const jwt = require("jsonwebtoken");
 const displayProducts = require("./displayProducts");
 const displayStore = require("./displayStore");
 const displayOrders = require("./displayOrders");
+const adminManageOrders = require("./adminManageOrders");
+const adminManageUsers = require("./adminManageUsers");
+
+
 const confirmPurchase = require("./confirmPurchase");
 const completePurchase = require("./completePurchase");
 
@@ -25,6 +29,8 @@ const logout = require("./logout");
 
 const loginAction = require("./loginAction");
 const editProduct = require("./editProduct");
+const editUser = require("./editUser");
+
 const saveAfterProductEdit = require("./saveAfterProductEdit");
 const deleteProduct = require("./deleteProduct");
 const deleteProductAfterConfirm = require("./deleteProductAfterConfirm");
@@ -58,6 +64,9 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/store", checkToken, displayStore);
+router.get("/manageorders", checkToken, employeeOnly, adminManageOrders);
+router.get("/manageusers", checkToken, employeeOnly, adminManageUsers);
+
 router.get("/orders", checkToken, displayOrders);
 router.post("/buy", checkToken, confirmPurchase);
 router.post("/reallybuy", checkToken, completePurchase);
@@ -87,5 +96,7 @@ router.post(
   employeeOnly,
   deleteProductAfterConfirm
 );
+router.get("/users/edit/:id", checkToken, employeeOnly, editUser);
+
 
 module.exports = router;

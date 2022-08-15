@@ -18,6 +18,7 @@ module.exports = async (req, res, next) => {
     product.deleteOne((err) => {
       if (err) {
         console.error("Could not delete product: " + err);
+        return res.redirect("/products?problem=true");
       }
       res.redirect("/products");
     });

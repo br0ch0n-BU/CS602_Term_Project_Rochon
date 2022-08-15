@@ -7,8 +7,7 @@
 const Order = require("../models/order.js");
 
 module.exports = async (req, res, next) => {
-  if (res.locals.user) {
-    let orders = await Order.find({username: res.locals.user}).sort("purchaseDate");
+    let orders = await Order.find({}).sort("purchaseDate");
 
     let results = orders.map((order) => {
       return {
@@ -22,10 +21,8 @@ module.exports = async (req, res, next) => {
     });
 
     res.render("displayOrdersView", {
-      title: "Order History",
+      title: "Admin Manage Order History",
       data: results,
-      user: res.locals.user,
-      isAdmin: res.locals.isAdmin,
+      manageView: true
     });
-  } else res.redirect("/");
 };

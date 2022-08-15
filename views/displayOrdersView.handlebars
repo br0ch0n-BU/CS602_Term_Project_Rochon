@@ -1,28 +1,46 @@
 <div>
-	<div class="table-responsive">
-		<table class="table table-condensed">
-			{{#if data}}
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>SKU</th>
-					<th>Quantity</th>
-					<th>Total</th>
-				</tr>
-			</thead>
-			{{else}}
-			<tr><td colspan="3">No Orders found ... Go buy stuff!</td></tr>
+  <div class="table-responsive">
+    <table class="table table-condensed">
+      {{#if data}}
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>SKU</th>
+			{{#if manageView}}
+			<th>User</th>
 			{{/if}}
-			<tbody>
-				{{#each data}}
-					<tr>
-						<td>{{this.date}}</td>
-						<td>{{this.sku}}</td>
-						<td>{{this.quantity}}</td>
-						<td>{{this.total}}</td>
-					</tr>
-				{{/each}}
-			</tbody>
-		</table>
-	</div>
+            <th>Quantity</th>
+            <th>Total</th>
+			{{#if manageView}}
+			<th></th>
+			{{/if}}
+          </tr>
+        </thead>
+      {{else}}
+        <tr><td colspan="3">No Orders found ... Go buy stuff!</td></tr>
+      {{/if}}
+      <tbody>
+        {{#each data}}
+          <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.sku}}</td>
+            {{#if ../manageView}}
+              <td>{{this.username}}</td>
+            {{/if}}
+            <td>{{this.quantity}}</td>
+            <td>${{this.total}}</td>
+            {{#if ../manageView}}
+              <td>
+                <a href="/orders/edit/{{this.id}}">Edit</a>
+                |
+                <a href="/orders/delete/{{this.id}}">Delete</a>
+              </td>
+            {{/if}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </div>

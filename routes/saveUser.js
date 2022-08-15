@@ -20,9 +20,10 @@ module.exports = async (req, res, next) => {
     user.save((error) => {
       if (error) {
         console.error("Could not register user: " + error);
+        return res.redirect("/register?problem=true");
       }
       // Success
-      res.redirect("/login");
+      res.redirect("/login?newUser=true");
     });
   } else res.redirect("/register");
 };

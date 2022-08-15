@@ -32,6 +32,7 @@ module.exports = async (req, res, next) => {
       product.save((err) => {
         if (err) {
           console.error("Could not update product: " + err);
+          return res.redirect("/products?problem=true");
         }
         res.redirect("/products");
       });

@@ -41,7 +41,9 @@
             <th>Image</th>
             <th>Price</th>
             <th>Quantity in Stock</th>
+            {{#if user}}
             <th>Buy!</th>
+            {{/if}}
           </tr>
         </thead>
       {{else}}
@@ -59,6 +61,7 @@
               /></td>
             <td>${{this.price}}</td>
             <td>{{this.quantity}}</td>
+            {{#if ../user}}
             <td>
               <form action="/buy" method="post">
                 <input
@@ -74,6 +77,7 @@
               </form>
               <!--<a href="/products/buy/{{this.id}}">Buy Now!</a>-->
             </td>
+            {{/if}}
           </tr>
         {{/each}}
       </tbody>

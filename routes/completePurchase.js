@@ -17,8 +17,12 @@ module.exports = async (req, res, next) => {
     }
 
     //TODO: don't allow negative; handle errors
-    product.quantityInStock -= req.body.desired;
-    product.save();
+    if (req.body.desired <= product.quantityInStock) {
+      product.quantityInStock -= req.body.desired;
+      product.save();
+    } else {
+      return res.render("500", { error: "Out of stock" });
+    }
 
     let order = new Order({
       sku: req.body.sku,

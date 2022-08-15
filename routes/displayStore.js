@@ -46,9 +46,6 @@ module.exports = async (req, res, next) => {
   res.render("displayStoreView", {
     title: "Storefront",
     data: results,
-    user: res.locals.user,
-    isAdmin: res.locals.isAdmin,
-    query: req.query
-
+    query: req.query,
   });
 };

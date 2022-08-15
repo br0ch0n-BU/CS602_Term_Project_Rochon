@@ -23,7 +23,6 @@ module.exports = async (req, res, next) => {
   res.render("displayProductsView", {
     title: "Admin Management of Products",
     data: results,
-    user: res.locals.user,
-    isAdmin: res.locals.isAdmin
+    problem: req.query.problem
   });
 };

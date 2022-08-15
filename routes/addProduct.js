@@ -7,9 +7,5 @@
 module.exports = (req, res, next) => {
   res.render("addProductView", {
     title: "Admin Add a product",
-    data: {
-      user: res.locals.user,
-      isAdmin: res.locals.isAdmin,
-    },
   });
 };
