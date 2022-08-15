@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
         console.error("Could not delete user: " + err);
         return res.redirect("/users?problem=true");
       }
-      res.redirect("/users");
+      res.redirect("/users?success=true");
     });
   });
 };

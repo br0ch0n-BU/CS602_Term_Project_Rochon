@@ -7,7 +7,6 @@
 const User = require("../models/user.js");
 
 module.exports = async (req, res, next) => {
-
   User.findById(req.params.id, (err, user) => {
     if (err) {
       console.error("Could not look up user: " + err);
@@ -20,10 +19,9 @@ module.exports = async (req, res, next) => {
       title: "Admin Delete this user?",
       data: {
         id: user._id,
-        sku: user.sku,
-        description: user.description,
-        user: res.locals.user,
-        isAdmin: res.locals.isAdmin
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
       },
     });
   });

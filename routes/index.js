@@ -30,6 +30,9 @@ const logout = require("./logout");
 const loginAction = require("./loginAction");
 const editProduct = require("./editProduct");
 const editUser = require("./editUser");
+const deleteUser = require("./deleteUser");
+const deleteUserAfterConfirm = require("./deleteUserAfterConfirm");
+
 const saveAfterUserEdit = require("./saveAfterUserEdit");
 
 
@@ -100,6 +103,12 @@ router.post(
 );
 router.get("/users/edit/:id", checkToken, employeeOnly, editUser);
 router.post("/users/edit", checkToken, employeeOnly, saveAfterUserEdit);
-
+router.get("/users/delete/:id", checkToken, employeeOnly, deleteUser);
+router.post(
+  "/users/delete",
+  checkToken,
+  employeeOnly,
+  deleteUserAfterConfirm
+);
 
 module.exports = router;
