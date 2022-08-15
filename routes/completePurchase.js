@@ -37,7 +37,7 @@ module.exports = async (req, res, next) => {
         console.error("Could not place order: " + error);
       }
       // Success
-      res.redirect("/orders");
+      res.redirect("/orders?success=true");
     });
   });
 };

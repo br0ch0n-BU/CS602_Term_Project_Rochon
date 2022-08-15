@@ -24,8 +24,7 @@ module.exports = async (req, res, next) => {
     res.render("displayOrdersView", {
       title: "Order History",
       data: results,
-      user: res.locals.user,
-      isAdmin: res.locals.isAdmin,
+      thanks: req.query.success
     });
   } else res.redirect("/");
 };
