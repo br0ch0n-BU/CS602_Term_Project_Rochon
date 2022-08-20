@@ -3,7 +3,10 @@
     <div class="notification is-danger">There was a problem adding/editing the
       product. Please try again.</div>
   {{/if}}
-
+  {{#if success}}
+    <div class="notification is-success">Updated!</div>
+  {{/if}}
+  <h3 class="title is-3">{{title}}</h3>
   <table class="table is-hoverable is-fullwidth">
     {{#if data}}
       <thead>
@@ -33,8 +36,11 @@
           <td>{{this.quantity}}</td>
           <td>
             <a class="button is-link" href="/products/edit/{{this.id}}">Edit</a>
-            
-            <a class="button is-danger" href="/products/delete/{{this.id}}">Delete</a>
+
+            <a
+              class="button is-danger"
+              href="/products/delete/{{this.id}}"
+            >Delete</a>
           </td>
         </tr>
       {{/each}}

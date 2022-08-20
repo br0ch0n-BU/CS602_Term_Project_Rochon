@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
         console.error("Could not delete product: " + err);
         return res.redirect("/products?problem=true");
       }
-      res.redirect("/products");
+      res.redirect("/products?success=true");
     });
   });
 };

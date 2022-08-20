@@ -21,8 +21,9 @@ module.exports = async (req, res, next) => {
   });
 
   res.render("displayProductsView", {
-    title: "Admin Management of Products",
+    title: "Manage Product Catalog",
     data: results,
-    problem: req.query.problem
+    problem: req.query.problem,
+    success: req.query.success
   });
 };
