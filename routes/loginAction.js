@@ -19,7 +19,7 @@ module.exports = async (req, res, next) => {
       const validPassword = await bcrypt.compare(req.body.password, user.password);
       if (validPassword) {
         const accessToken = jwt.sign({ username: user.email,  isAdmin: user.isAdmin }, accessTokenSecret);
-        res.cookie('access_token', accessToken, { signed: true });
+        res.cookie('access_token', accessToken, { sameSite: 'strict', signed: true });
         //res.status(200).json({ message: "Valid password.  Token is: " + accessToken });
         res.redirect('/store');
       } else {

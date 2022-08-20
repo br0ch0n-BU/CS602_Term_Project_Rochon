@@ -1,41 +1,139 @@
-<!doctype html>
-<html>
-<head>
-	<title>BALL*MART, your source for recreational spheroids</title>
-	<link rel='stylesheet' href='/stylesheets/bootstrap.css' />
-	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-	<script src="/javascripts/clickActions.js" type="text/javascript"></script>
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BALL*MART</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script
+      src="/javascripts/clickActions.js"
+      type="text/javascript"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar is-info"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/store">
+            <img
+              src="/images/ballmart.png"
+              width="112"
+              height="28"
+              alt="BALL*MART"
+            />
+          </a>
 
-	<header>
-		<a href="/"><img src="/images/ballmart.png" alt="logo" height="50"></a>
-		<p>
-		<center>
-			<h2>BALL*MART, your source for recreational spheroids</h2>
-			<h3>CS602 TermProject - Brandon Rochon</h3>
-			<h4>View: {{title}}</h4>
-			{{#if user}}
-			<h5>Hi {{user}}!</h5>
-			<a href="/logout">logout</a> <br />
-			<a href="/orders">See your order history</a>
-			{{else}}
-			<h5>You should <a href="/login">login</a> or <a href="/register">register</a> so you can buy stuff!</h5>
-			{{/if}}
+          <a
+            role="button"
+            id="navburger"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
 
-			{{#if isAdmin}}
-			<h5>You're an admin, so you can also <a href="/products">Manage the catalog</a>, <a href="/manageorders">Manage orders</a>, <a href="/users">Manage users</a>, and other stuff</h5>
-			{{/if}}
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            {{#if user}}
+              <a class="navbar-item" href="/orders"> Order history </a>
+            {{/if}}
 
+            {{#if isAdmin}}
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link"> Admin </a>
 
-		</center>
-	</header>
-	<div class="panel-body">
-		{{{body}}}
-	</div>
-	
+                <div class="navbar-dropdown">
+                  <a class="navbar-item" href="/products"> Manage catalog </a>
+                  <a class="navbar-item" href="/manageorders">
+                    Manage customer orders
+                  </a>
+                  <a class="navbar-item" href="/users">
+                    Manage customer accounts
+                  </a>
 
-</body>
+                </div>
+              </div>
+            {{/if}}
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <form action="/store" method="get">
+                <input
+                  class="input"
+                  style="width:6em"
+                  type="number"
+                  name="minPrice"
+                  id="minPrice"
+                  placeholder="$Min"
+                  value="{{query.minPrice}}"
+                />
+                <input
+                  class="input"
+                  style="width:6em"
+                  type="number"
+                  placeholder="$Max"
+                  name="maxPrice"
+                  id="maxPrice"
+                  value="{{query.maxPrice}}"
+                />
+                <input
+                  class="input"
+                  style="width:12em"
+                  type="text"
+                  placeholder="Description"
+                  name="desc"
+                  id="desc"
+                  value="{{query.desc}}"
+                />
+                <input class="button" type="submit" value="Search" />
+                <input
+                  class="button"
+                  type="button"
+                  value="Reset"
+                  onclick="cancelGoHome()"
+                />
+              </form>
+            </div>
+            {{#if user}}
+              <div class="navbar-item">Hi {{user}} !</div>
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-danger" href="/logout"> Log out </a>
+                </div>
+              </div>
+            {{else}}
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-primary" href="/register">
+                    <strong>Sign up</strong>
+                  </a>
+                  <a class="button is-light" href="/login"> Log in </a>
+                </div>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="panel-body">
+      {{{body}}}
+    </div>
+
+  </body>
 </html>
-
-

@@ -1,38 +1,6 @@
-<div id="search">
-  <form action="/store" method="get">
-
-    <label for="desc">Description/SKU</label>
-    <input type="text" name="desc" id="desc" value="{{query.desc}}" />
-
-    <label for="minPrice">Min Price</label>
-    <input
-      type="number"
-      name="minPrice"
-      id="minPrice"
-      value="{{query.minPrice}}"
-    />
-
-    <label for="maxPrice">Max Price</label>
-    <input
-      type="number"
-      name="maxPrice"
-      id="maxPrice"
-      value="{{query.maxPrice}}"
-    />
-
-    <input type="submit" value="Search" class="btn btn-success" />
-    <input
-      type="button"
-      value="Reset"
-      class="btn btn-danger"
-      class="cancel"
-      onclick="cancelSearch()"
-    />
-  </form>
-</div>
 <div>
-  <div class="table-responsive">
-    <table class="table table-condensed">
+  <div>
+    <table class="table is-hoverable">
       {{#if data}}
         <thead>
           <tr>
@@ -54,10 +22,10 @@
           <tr>
             <td>{{this.sku}}</td>
             <td>{{this.description}}</td>
-            <td><img
+            <td><img class="image is-96x96"
                 src="{{this.image}}"
                 alt="picture of SKU {{this.sku}}"
-                height="100"
+                
               /></td>
             <td>${{this.price}}</td>
             <td>{{this.quantity}}</td>
