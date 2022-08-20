@@ -1,69 +1,66 @@
-<div class="table-responsive">
+<section class="section">
+
   <form method="post" action="/products/add">
-    <table class="table table-condensed">
-      <tbody>
+    <div class="field">
+      <label class="label">SKU: </label>
+      <input
+        class="input"
+        type="text"
+        name="sku"
+        required
+        placeholder="Enter SKU"
+      />
+    </div>
+    <div class="field">
+      <label class="label">Description: </label>
+      <input
+        class="input"
+        type="text"
+        name="description"
+        required
+        placeholder="Enter description"
+      />
+    </div>
+    <div class="field">
+      <label class="label">Price: </label>
+      <input
+        class="input"
+        type="number"
+        step="0.01"
+        name="price"
+        required
+        placeholder="Enter price"
+      />
+    </div>
+    <div class="field">
+      <label class="label">Quantity: </label>
+      <input
+        class="input"
+        type="number"
+        name="quantity"
+        required
+        placeholder="Enter current quantity in stock"
+      />
+    </div>
+    <div class="field">
+      <label class="label">Image path (optional): </label>
+      <input
+        class="input"
+        type="text"
+        name="imagePath"
+        placeholder="Enter URL to image of product"
+      />
+    </div>
 
-        <tr>
-          <th>SKU: </th>
-          <td><input
-              type="text"
-              name="sku"
-              required
-              placeholder="Enter SKU"
-            /></td>
-        </tr>
-        <tr>
-          <th>Description: </th>
-          <td><input
-              type="text"
-              name="description"
-              required
-              placeholder="Enter description"
-            /></td>
-        </tr>
-        <tr>
-          <th>Price: </th>
-          <td><input
-              type="number"
-              step="0.01"
-              name="price"
-              required
-              placeholder="Enter price"
-            /></td>
-        </tr>
-        <tr>
-          <th>Quantity: </th>
-          <td><input
-              type="number"
-              name="quantity"
-              required
-              placeholder="Enter current quantity in stock"
-            /></td>
-        </tr>
-        <tr>
-          <th>Image path (optional): </th>
-          <td><input
-              type="text"
-              name="imagePath"
-              placeholder="Enter URL to image of product"
-            /></td>
-        </tr>
+    <div class="field">
+      <input type="submit" value="Save" class="button is-success" />
+      <input
+        type="button"
+        value="Cancel"
+        class="button is-danger"
+        onclick="cancelAdd()"
+      />
+    </div>
 
-      </tbody>
-      <tfooter>
-        <tr>
-          <td></td>
-          <td>
-            <input type="submit" value="Save" class="btn btn-success" />
-            <input
-              type="button"
-              value="Cancel"
-              class="btn btn-danger"
-              onclick="cancelAdd()"
-            />
-          </td>
-        </tr>
-      </tfooter>
-    </table>
   </form>
-</div>
+</section>
