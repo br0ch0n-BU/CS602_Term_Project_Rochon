@@ -10,8 +10,12 @@
   {{#if success}}
     <div class="notification is-success">Updated order!</div>
   {{/if}}
-      
+
+  {{#if filteruser}} 
+    <h3 class="title is-3">{{title}} for {{filteruser}}</h3>
+  {{else}}
     <h3 class="title is-3">{{title}}</h3>
+  {{/if}}
 
   {{#if data}}
     <table class="table is-hoverable is-fullwidth">

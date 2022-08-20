@@ -1,4 +1,6 @@
-<div class="table-responsive">
+<section class="section">
+  <h3 class="title is-3">{{title}}</h3>
+
   <form method="post" action="/users/delete">
     <table class="table table-condensed">
       <tbody>
@@ -21,11 +23,11 @@
         <tr>
           <td></td>
           <td>
-            <input type="submit" value="OK" class="btn btn-success" />
+            <input type="submit" value="OK" class="button is-success" />
             <input
               type="button"
               value="Cancel"
-              class="btn btn-danger"
+              class="button is-danger"
               class="cancel"
               onclick="location.href='/users'"
             />
@@ -34,4 +36,4 @@
       </tfooter>
     </table>
   </form>
-</div>
+</section>

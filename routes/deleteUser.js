@@ -16,7 +16,7 @@ module.exports = async (req, res, next) => {
     }
 
     res.render("deleteUserView", {
-      title: "Admin Delete this user?",
+      title: "Admin Delete This User?",
       data: {
         id: user._id,
         firstName: user.firstName,

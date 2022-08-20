@@ -1,9 +1,11 @@
 {{#if problem}}
   <h2>There was a problem editing the user. Please try again.</h2>
 {{/if}}
-<div class="table-responsive">
+<section class="section">
+    <h3 class="title is-3">{{title}}</h3>
+
   <form method="post" action="/users/edit">
-    <table class="table table-condensed">
+    <table class="table">
       <tbody>
 
         <tr>
@@ -54,11 +56,11 @@
         <tr>
           <td></td>
           <td>
-            <input type="submit" value="Save" class="btn btn-success" />
+            <input type="submit" value="Save" class="button is-success" />
             <input
               type="button"
               value="Cancel"
-              class="btn btn-danger"
+              class="button is-danger"
               onclick="location.href='/users'"
             />
           </td>
@@ -66,4 +68,4 @@
       </tfooter>
     </table>
   </form>
-</div>
+</section>

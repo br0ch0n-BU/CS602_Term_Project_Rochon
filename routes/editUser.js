@@ -16,7 +16,7 @@ module.exports = async (req, res, next) => {
     }
 
     res.render("editUserView", {
-      title: "Admin Edit user",
+      title: "Edit User Details",
       data: {
         id: user._id,
         firstName: user.firstName,

@@ -27,6 +27,7 @@ module.exports = async (req, res, next) => {
     data: results,
     manageView: true,
     problem: req.query.problem,
-    success: req.query.success
+    success: req.query.success,
+    filteruser: req.query.user
   });
 };

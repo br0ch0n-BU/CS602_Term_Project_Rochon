@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
   });
 
   res.render("displayUsersView", {
-    title: "Admin Manage Users",
+    title: "Manage Customer Accounts",
     data: results,
     manageView: true,
     problem: req.query.problem,
