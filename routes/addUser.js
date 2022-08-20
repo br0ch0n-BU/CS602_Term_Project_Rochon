@@ -6,7 +6,7 @@
 
 module.exports = (req, res, next) => {
   res.render("addUserView", {
-    title: "Register New User",
+    title: "Create New Account",
     problem: req.query.problem,
   });
 };
