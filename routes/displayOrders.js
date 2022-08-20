@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
     });
 
     res.render("displayOrdersView", {
-      title: "Order History",
+      title: "Your Order History",
       data: results,
       thanks: req.query.success
     });

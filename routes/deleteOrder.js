@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
     }
 
     res.render("deleteOrderView", {
-      title: "Admin Delete this order?",
+      title: "Admin Delete This Order?",
       data: {
         id: order._id,
         sku: order.sku,

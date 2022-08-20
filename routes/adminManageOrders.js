@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
   });
 
   res.render("displayOrdersView", {
-    title: "Admin Manage Order History",
+    title: "Manage All Customer Orders",
     data: results,
     manageView: true,
     problem: req.query.problem,

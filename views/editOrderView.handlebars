@@ -1,66 +1,49 @@
-{{#if problem}}
-  <h2>There was a problem editing the order. Please try again.</h2>
-{{/if}}
-<div class="table-responsive">
+<section class="section">
+  {{#if problem}}
+    <h2>There was a problem editing the order. Please try again.</h2>
+  {{/if}}
+  <h3 class="title is-3">{{title}}</h3>
+
   <form method="post" action="/manageorders/edit">
-    <table class="table table-condensed">
-      <tbody>
-        <tr>
-          <th>Order ID:</th>
-          <td>{{data.id}}</td>
-        </tr>
-        <tr>
-          <th>Date:</th>
-          <td>{{data.date}}</td>
-        </tr>
-        <tr>
-          <th>User:</th>
-          <td>{{data.username}}</td>
-        </tr>
-        <tr>
-          <th>SKU:</th>
-          <td><input
-              type="text"
-              name="sku"
-              required
-              value="{{data.sku}}"
-            /></td>
-        </tr>
-        <tr>
-          <th>Quantity:</th>
-          <td><input
-              type="number"
-              name="quantity"
-              required
-              value="{{data.quantity}}"
-            /></td>
-        </tr>
-        <tr>
-          <th>Total:</th>
-          <td><input
-              type="number"
-              name="total"
-              step="0.01"
-              required
-              value="{{data.total}}"
-            /></td>
-        </tr>
-        <input type="hidden" name="id" value="{{data.id}}" />
-      </tbody>
-      <tfooter>
-        <tr>
-          <td></td>
-          <td>
-            <input type="submit" value="Save" class="btn btn-success" />
-            <input
-              type="button"
-              value="Cancel"
-              class="btn btn-danger"
-              onclick="history.back()"
-            />
-          </td>
-        </tr>
-      </tfooter>
-    </table>
+    <div class="field">
+      <label class="label">Order ID:</label>
+      <p>{{data.id}}</p>
+    </div>
+    <div class="field">
+      <label class="label">Date:</label>
+      <p>{{data.date}}</p>
+    </div>
+    <div class="field">
+      <label class="label">User:</label>
+      <p>{{data.username}}</p>
+    </div>
+    <div class="field">
+      <label class="label">SKU:</label>
+      <input type="text" name="sku" required value="{{data.sku}}" />
+    </div>
+    <div class="field">
+      <label class="label">Quantity:</label>
+      <input type="number" name="quantity" required value="{{data.quantity}}" />
+    </div>
+    <div class="field">
+      <label class="label">Total:</label>
+      <input
+        type="number"
+        name="total"
+        step="0.01"
+        required
+        value="{{data.total}}"
+      />
+    </div>
+    <input type="hidden" name="id" value="{{data.id}}" />
+    <div class="field">
+      <input type="submit" value="Save" class="button is-success" />
+      <input
+        type="button"
+        value="Cancel"
+        class="button is-danger"
+        onclick="location.href='/manageorders'"
+      />
+    </div>
   </form>
-</div>
+</section>

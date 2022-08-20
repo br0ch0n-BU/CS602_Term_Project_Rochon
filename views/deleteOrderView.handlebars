@@ -1,6 +1,8 @@
-<div class="table-responsive">
-  <form method="post" action='/manageorders/delete'>
-    <table class="table table-condensed">
+<section class="section">
+  <h3 class="title is-3">{{title}}</h3>
+
+  <form method="post" action="/manageorders/delete">
+    <table class="table">
       <tbody>
         <tr>
           <th>Order ID:</th>
@@ -26,19 +28,24 @@
           <th>Total:</th>
           <td>{{data.total}}</td>
         </tr>
-        <input type="hidden" name="id" value="{{data.id}}">
-       
+        <input type="hidden" name="id" value="{{data.id}}" />
+
       </tbody>
       <tfooter>
         <tr>
           <td></td>
           <td>
-              <input type="submit" value="OK" class="btn btn-success">
-              <input type="button" value="Cancel" class="btn btn-danger"
-                  class="cancel" onclick="history.back()">
+            <input type="submit" value="OK" class="button is-success" />
+            <input
+              type="button"
+              value="Cancel"
+              class="button is-danger"
+              class="cancel"
+              onclick="location.href='/manageorders'"
+            />
           </td>
         </tr>
       </tfooter>
     </table>
   </form>
-</div>
+</section>
