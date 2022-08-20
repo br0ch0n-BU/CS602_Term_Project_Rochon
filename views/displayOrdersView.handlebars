@@ -42,9 +42,9 @@
             <td>${{this.total}}</td>
             {{#if ../manageView}}
               <td>
-                <a href="/manageorders/edit/{{this.id}}">Edit</a>
-                |
-                <a href="/manageorders/delete/{{this.id}}">Delete</a>
+                <a class="button is-link" href="/manageorders/edit/{{this.id}}">Edit</a>
+                
+                <a class="button is-danger" href="/manageorders/delete/{{this.id}}">Delete</a>
               </td>
             {{/if}}
           </tr>
