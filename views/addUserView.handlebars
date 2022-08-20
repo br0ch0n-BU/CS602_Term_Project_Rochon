@@ -1,63 +1,80 @@
-{{#if problem}}
-  <h2>There was a problem registering you. Please try again.</h2>
-{{/if}}
-<div class="table-responsive">
+<section class="section">
+  {{#if problem}}
+    <div class="notification is-danger">There was a problem registering you.
+      Please try again.</div>
+  {{/if}}
   <form method="post" action="/register">
-    <table class="table table-condensed">
-      <tbody>
+    <div class="field">
+      <label class="label">First Name</label>
+      <div class="control has-icons-left has-icons-right">
+        <input
+          class="input"
+          type="text"
+          name="fname"
+          required
+          placeholder="Enter first name"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+    </div>
 
-        <tr>
-          <th>First Name: </th>
-          <td><input
-              type="text"
-              name="fname"
-              required
-              placeholder="Enter first name"
-            /></td>
-        </tr>
-        <tr>
-          <th>Last Name: </th>
-          <td><input
-              type="text"
-              name="lname"
-              required
-              placeholder="Enter last name"
-            /></td>
-        </tr>
-        <tr>
-          <th>E-mail: </th>
-          <td><input
-              type="email"
-              name="email"
-              required
-              placeholder="Enter e-mail address"
-            /></td>
-        </tr>
-        <tr>
-          <th>Password: </th>
-          <td><input
-              type="password"
-              name="password"
-              required
-              placeholder="Enter new password"
-            /></td>
-        </tr>
+    <div class="field">
+      <label class="label">Last Name</label>
+      <div class="control has-icons-left has-icons-right">
+        <input
+          class="input"
+          type="text"
+          name="lname"
+          required
+          placeholder="Enter last name"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-people-roof"></i>
+        </span>
+      </div>
+    </div>
 
-      </tbody>
-      <tfooter>
-        <tr>
-          <td></td>
-          <td>
-            <input type="submit" value="Save" class="btn btn-success" />
-            <input
-              type="button"
-              value="Cancel"
-              class="btn btn-danger"
-              onclick="cancelGoHome()"
-            />
-          </td>
-        </tr>
-      </tfooter>
-    </table>
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left has-icons-right">
+        <input
+          class="input"
+          type="email"
+          name="email"
+          required
+          placeholder="Enter e-mail address"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control has-icons-left">
+        <input
+          class="input"
+          type="password"
+          name="password"
+          required
+          placeholder="Enter new password"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </div>
+    </div>
+
+    <input type="submit" value="Save" class="button is-success" />
+    <input
+      type="button"
+      value="Cancel"
+      class="button is-danger"
+      onclick="cancelGoHome()"
+    />
+
   </form>
-</div>
+</section>

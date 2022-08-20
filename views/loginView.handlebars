@@ -1,6 +1,9 @@
 <section class="section">
   {{#if newUser}}
     <div class="notification is-success">Thanks for registering! Sign in now!</div>
+  {{else}}
+    <h4 class="title is-4">No account yet? Go
+      <a href="/register">sign up</a> first!</h4>
   {{/if}}
   <form method="post" action="/login">
 
