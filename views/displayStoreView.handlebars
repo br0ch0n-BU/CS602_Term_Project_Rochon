@@ -1,54 +1,43 @@
-<div>
-  <div>
-    <table class="table is-hoverable">
-      {{#if data}}
-        <thead>
-          <tr>
-            <th>SKU</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Price</th>
-            <th>Quantity in Stock</th>
-            {{#if user}}
-            <th>Buy!</th>
-            {{/if}}
-          </tr>
-        </thead>
-      {{else}}
-        <tr><td colspan="3">No Products found!</td></tr>
-      {{/if}}
-      <tbody>
-        {{#each data}}
-          <tr>
-            <td>{{this.sku}}</td>
-            <td>{{this.description}}</td>
-            <td><img class="image is-96x96"
-                src="{{this.image}}"
-                alt="picture of SKU {{this.sku}}"
-                
-              /></td>
-            <td>${{this.price}}</td>
-            <td>{{this.quantity}}</td>
-            {{#if ../user}}
-            <td>
-              <form action="/buy" method="post">
-                <input
-                  type="number"
-                  name="desired"
-                  id="desired"
-                  min="1"
-                  max="99"
-				  value="1"
-                />
-                <input type="hidden" name="id" value="{{this.id}}" />
-                <input type="submit" value="Buy Now" />
-              </form>
-              <!--<a href="/products/buy/{{this.id}}">Buy Now!</a>-->
-            </td>
-            {{/if}}
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-</div>
+<section class="section">
+  {{#if data}}
+    <div class="columns is-multiline">
+      {{#each data}}
+
+        <div class="column is-one-third">
+          <div class="tile is-ancestor">
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">{{this.description}}</p>
+                <p class="subtitle">${{this.price}}</p>
+                <p>sku: {{this.sku}}</p>
+                <p>In stock: {{this.quantity}}</p>
+                <figure class="image is-128x128">
+                  <img src="{{this.image}}" alt="picture of {{this.sku}}" />
+                </figure>
+                <form action="/buy" method="post">
+                  <input
+                    class="input"
+                    style="width:4em"
+                    type="number"
+                    name="desired"
+                    id="desired"
+                    min="1"
+                    max="99"
+                    value="1"
+                  />
+                  <input type="hidden" name="id" value="{{this.id}}" />
+                  <input class="button is-info" type="submit" value="Buy Now" />
+                </form>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+  {{else}}
+    <div class="notification is-danger">No products found!</div>
+
+  {{/if}}
+</section>

@@ -1,34 +1,34 @@
-{{#if thanks}}
-<h3>Thanks for your purchase! See your orders below.</h3>
-{{/if}}
-{{#if problem}}
-  <h2>There was a problem editing/deleting the order. Please try again.</h2>
-{{/if}}
-{{#if success}}
-  <h2>Updated order!</h2>
-{{/if}}
-<div>
-  <div class="table-responsive">
-    <table class="table table-condensed">
-      {{#if data}}
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Date</th>
-            <th>SKU</th>
-			{{#if manageView}}
-			<th>User</th>
-			{{/if}}
-            <th>Quantity</th>
-            <th>Total</th>
-			{{#if manageView}}
-			<th></th>
-			{{/if}}
-          </tr>
-        </thead>
-      {{else}}
-        <tr><td colspan="3">No Orders found ... Go buy stuff!</td></tr>
-      {{/if}}
+<section class="section">
+  {{#if thanks}}
+    <div class="notification is-success">Thanks for your purchase! See your
+      orders below.</div>
+  {{/if}}
+  {{#if problem}}
+    <div class="notification is-danger">There was a problem editing/deleting the
+      order. Please try again.</div>
+  {{/if}}
+  {{#if success}}
+    <div class="notification is-success">Updated order!</div>
+  {{/if}}
+  {{#if data}}
+
+    <table class="table is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>SKU</th>
+          {{#if manageView}}
+            <th>User</th>
+          {{/if}}
+          <th>Quantity</th>
+          <th>Total</th>
+          {{#if manageView}}
+            <th></th>
+          {{/if}}
+        </tr>
+      </thead>
+
       <tbody>
         {{#each data}}
           <tr>
@@ -51,5 +51,9 @@
         {{/each}}
       </tbody>
     </table>
-  </div>
-</div>
+
+  {{else}}
+    <div class="notification is-danger">No Orders found ... Go buy stuff!</div>
+  {{/if}}
+
+</section>

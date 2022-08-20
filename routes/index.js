@@ -58,7 +58,7 @@ const employeeOnly = (req, res, next) => {
 
 const customerOnly = (req, res, next) => {
   if (res.locals.user) return next();
-  res.redirect("/");
+  res.redirect("/login");
 };
 
 
