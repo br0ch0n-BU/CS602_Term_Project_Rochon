@@ -39,25 +39,25 @@ visit the site at http://localhost:3000
 ### Administrator-only routes
 - GET /manageorders --> Display all customer orders.
 - GET /manageorders/edit/:id --> Edit selected customer order.
-- POST /manageorders/edit --> Saves editted customer order to DB.
+- POST /manageorders/edit --> Saves edited customer order to DB.
 - GET /manageorders/delete/:id --> Delete selected customer order.
 - POST /manageorders/delete --> Remove customer order from DB.
 
 - GET /products --> Manage the product catalog.
-- GET /products/add --> Manage the product catalog.
-- POST /products/add --> Manage the product catalog.
-- GET /products/edit/:id --> Manage the product catalog.
-- POST /products/edit --> Manage the product catalog.
-- GET /products/delete/:id --> Manage the product catalog.
-- POST /products/delete --> Manage the product catalog.
+- GET /products/add --> Form to add product to catalog.
+- POST /products/add --> Save new product to DB.
+- GET /products/edit/:id --> Form to edit the selected product.
+- POST /products/edit --> Save edited product to DB.
+- GET /products/delete/:id --> Confirm delete of selected product.
+- POST /products/delete --> Remove product from DB.
 
 - GET /users --> Manage user accounts.
-- GET /users/edit/:id --> Manage user accounts.
-- POST /users/edit --> Manage user accounts.
-- GET /users/delete/:id --> Manage user accounts.
-- POST /users/delete --> Manage user accounts.
+- GET /users/edit/:id --> Form to edit selected user.
+- POST /users/edit --> Save edited user to DB.
+- GET /users/delete/:id --> Form to delete selected user.
+- POST /users/delete --> Remove user from DB.
 
 ### Middleware
-- checkToken --> Checks for presence of token so as to determine logged in state.  Token encodes username and isAdmin flag.
+- checkToken --> Checks for presence of token in cookie so as to determine logged in state.  Token encodes username and isAdmin flag.
 - customerOnly --> Allows logged in users to proceed to route. Redirects to login if not.
 - employeeOnly --> Allows admins to proceed to management routes. Falls back to 404 if not an admin.
